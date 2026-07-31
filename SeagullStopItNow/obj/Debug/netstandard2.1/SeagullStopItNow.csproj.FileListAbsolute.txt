@@ -1,0 +1,14 @@
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.csproj.AssemblyReference.cache
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.csproj.SuggestedBindingRedirects.cache
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.dll.config
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/PluginInfo.cs
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.GeneratedMSBuildEditorConfig.editorconfig
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.AssemblyInfoInputs.cache
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.AssemblyInfo.cs
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.csproj.CoreCompileInputs.cache
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/bin/Debug/netstandard2.1/SeagullStopItNow.dll.config
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/bin/Debug/netstandard2.1/SeagullStopItNow.deps.json
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/bin/Debug/netstandard2.1/SeagullStopItNow.dll
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/bin/Debug/netstandard2.1/SeagullStopItNow.pdb
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.dll
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.pdb
