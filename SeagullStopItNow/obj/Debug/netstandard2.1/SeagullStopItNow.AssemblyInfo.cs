@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeagullStopItNow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1+825cbf62cb1db2109c9147d16a09c9a60af04f99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1+31dd1118a8b6468d1432aeeb33fb35a1de6e25df")]
 [assembly: System.Reflection.AssemblyProductAttribute("My first plugin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeagullStopItNow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")]

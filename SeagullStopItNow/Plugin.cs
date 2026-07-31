@@ -37,7 +37,7 @@ public class SeagullPlugin : BaseUnityPlugin
         new SoundEntry("thatsgood.wav", 2) 
     };
     
-    private readonly Harmony harmony = new Harmony("com.francis.seagullstopitnow");
+    private readonly Harmony harmony = new Harmony("com.archonite.seagullstopitnow");
 
     private void Awake()
     {
