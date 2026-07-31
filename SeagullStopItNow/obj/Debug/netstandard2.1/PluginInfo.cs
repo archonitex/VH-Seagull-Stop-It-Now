@@ -4,6 +4,6 @@ namespace SeagullStopItNow
     {
         public const string PLUGIN_GUID = "SeagullStopItNow";
         public const string PLUGIN_NAME = "ValheimMod-SeagullStopItNow";
-        public const string PLUGIN_VERSION = "1.0.2";
+        public const string PLUGIN_VERSION = "1.0.3";
     }
 }

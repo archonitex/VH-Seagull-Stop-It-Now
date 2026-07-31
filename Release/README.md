@@ -26,3 +26,5 @@ If you want to use your own sounds in the future, you can simply replace the inc
   * Initial release.
 * **v1.0.2**
   * Added very low chance that the full song plays
+* **v1.0.3**
+  * Added support for multiplayer. The sound will now play at the location of the player that killed the Seagull.

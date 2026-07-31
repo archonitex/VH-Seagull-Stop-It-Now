@@ -10,7 +10,7 @@ using System;
 
 namespace SeagullStopItNow;
 
-[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.2")]
+[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.3")]
 public class SeagullPlugin : BaseUnityPlugin
 {
     private static SeagullPlugin Instance;
@@ -199,11 +199,11 @@ public class Character_Damage_Patch
             if (objName.Contains("Seagal"))
             {
                 Character attacker = hit.GetAttacker();
-                if (attacker != null && attacker == Player.m_localPlayer)
+                if (attacker != null && attacker.IsPlayer())
                 {
                     SeagullPlugin.LogMessage("Seagull killed via Character patch!");
                     //SeagullPlugin.PlayDeathSound(__instance.transform.position);
-                    SeagullPlugin.PlayDeathSound(Player.m_localPlayer.transform.position);
+                    SeagullPlugin.PlayDeathSound(attacker.transform.position);
                 }
             }
         }
@@ -226,11 +226,11 @@ public class Destructible_Damage_Patch
                 if (hit != null)
                 {
                     Character attacker = hit.GetAttacker();
-                    if (attacker != null && attacker == Player.m_localPlayer)
+                    if (attacker != null && attacker.IsPlayer())
                     {
                         SeagullPlugin.LogMessage("Local player killed the seagull via Destructible patch!");
                         //SeagullPlugin.PlayDeathSound(__instance.transform.position); //This plays the sound at the Seagull's position, which may be far away from the player. Consider using the player's position instead.
-                        SeagullPlugin.PlayDeathSound(Player.m_localPlayer.transform.position);
+                        SeagullPlugin.PlayDeathSound(attacker.transform.position);
                     }
                 }
             }
