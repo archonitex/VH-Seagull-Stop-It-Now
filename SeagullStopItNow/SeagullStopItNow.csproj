@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>SeagullStopItNow</AssemblyName>
-    <Product>My first plugin</Product>
-    <Version>1.0.1</Version>
+    <Product>ValheimMod-SeagullStopItNow</Product>
+    <Version>1.0.2</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>

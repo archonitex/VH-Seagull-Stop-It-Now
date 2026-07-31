@@ -24,3 +24,5 @@ If you want to use your own sounds in the future, you can simply replace the inc
 ## Changelog
 * **v1.0.0**
   * Initial release.
+* **v1.0.2**
+  * Added very low chance that the full song plays

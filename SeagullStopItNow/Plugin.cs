@@ -10,7 +10,7 @@ using System;
 
 namespace SeagullStopItNow;
 
-[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.0")]
+[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.2")]
 public class SeagullPlugin : BaseUnityPlugin
 {
     private static SeagullPlugin Instance;
@@ -34,7 +34,8 @@ public class SeagullPlugin : BaseUnityPlugin
         new SoundEntry("hmhah2.wav", 10),
         new SoundEntry("stopitnow.wav", 10),
         new SoundEntry("stopitnow2.wav", 10),
-        new SoundEntry("thatsgood.wav", 2) 
+        new SoundEntry("thatsgood.wav", 2),
+        new SoundEntry("SeagullsStopItNowFull.wav", 1)
     };
     
     private readonly Harmony harmony = new Harmony("com.archonite.seagullstopitnow");
