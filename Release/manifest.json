@@ -1,0 +1,9 @@
+{
+  "name": "SeagullStopItNow",
+  "version_number": "1.0.1",
+  "website_url": "https://github.com/archonitex/VH-Seagull-Stop-It-Now",
+  "description": "Plays a clip from 'Seagulls - Stop It Now' whenever you kill a seagull.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2330"
+  ]
+}

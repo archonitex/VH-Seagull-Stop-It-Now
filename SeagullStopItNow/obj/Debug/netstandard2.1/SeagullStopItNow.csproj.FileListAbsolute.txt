@@ -12,3 +12,4 @@
 /home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/bin/Debug/netstandard2.1/SeagullStopItNow.pdb
 /home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.dll
 /home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.pdb
+/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/obj/Debug/netstandard2.1/SeagullStopItNow.sourcelink.json
