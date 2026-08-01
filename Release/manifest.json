@@ -1,6 +1,6 @@
 {
   "name": "SeagullStopItNow",
-  "version_number": "1.0.3",
+  "version_number": "1.0.4",
   "website_url": "https://github.com/archonitex/VH-Seagull-Stop-It-Now",
   "description": "Plays a clip from 'Seagulls - Stop It Now' whenever you kill a seagull.",
   "dependencies": [

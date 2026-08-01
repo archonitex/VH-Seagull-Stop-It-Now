@@ -10,7 +10,7 @@ using System;
 
 namespace SeagullStopItNow;
 
-[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.3")]
+[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.4")]
 public class SeagullPlugin : BaseUnityPlugin
 {
     private static SeagullPlugin Instance;
@@ -198,11 +198,11 @@ public class Character_Damage_Patch
             string objName = __instance.gameObject.name;
             if (objName.Contains("Seagal"))
             {
-                Character attacker = hit.GetAttacker();
+                // Fallback: If network didn't sync the attacker, just assign to local player so we can play the sound. This is a workaround for multiplayer where the attacker might not be synced.
+                Character attacker = (hit?.GetAttacker()) ?? Player.m_localPlayer;
                 if (attacker != null && attacker.IsPlayer())
                 {
-                    SeagullPlugin.LogMessage("Seagull killed via Character patch!");
-                    //SeagullPlugin.PlayDeathSound(__instance.transform.position);
+                    SeagullPlugin.LogMessage("Seagull killed via Character damage patch!");
                     SeagullPlugin.PlayDeathSound(attacker.transform.position);
                 }
             }
@@ -221,17 +221,11 @@ public class Destructible_Damage_Patch
             
             if (objName.Contains("Seagal"))
             {
-                SeagullPlugin.LogMessage($"Destructible Seagal hit/destroyed: {objName}");
-                
-                if (hit != null)
+                Character attacker = (hit?.GetAttacker()) ?? Player.m_localPlayer;
+                if (attacker != null && attacker.IsPlayer())
                 {
-                    Character attacker = hit.GetAttacker();
-                    if (attacker != null && attacker.IsPlayer())
-                    {
-                        SeagullPlugin.LogMessage("Local player killed the seagull via Destructible patch!");
-                        //SeagullPlugin.PlayDeathSound(__instance.transform.position); //This plays the sound at the Seagull's position, which may be far away from the player. Consider using the player's position instead.
-                        SeagullPlugin.PlayDeathSound(attacker.transform.position);
-                    }
+                    SeagullPlugin.LogMessage("Player killed seagull via Destructible damage patch!");
+                    SeagullPlugin.PlayDeathSound(attacker.transform.position);
                 }
             }
         }

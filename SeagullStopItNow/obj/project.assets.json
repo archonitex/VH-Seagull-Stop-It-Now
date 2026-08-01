@@ -2404,7 +2404,7 @@
     "/home/francis/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.0.3",
+    "version": "1.0.4",
     "restore": {
       "projectUniqueName": "/home/francis/Development/Valheim-Mods/Seagull-Stop-It-Now/SeagullStopItNow/SeagullStopItNow.csproj",
       "projectName": "SeagullStopItNow",
