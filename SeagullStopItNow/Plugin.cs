@@ -10,11 +10,12 @@ using System;
 
 namespace SeagullStopItNow;
 
-[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.4")]
+[BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.5")]
 public class SeagullPlugin : BaseUnityPlugin
 {
     private static SeagullPlugin Instance;
-    
+    public static readonly String znetEventName = "PlaySeagalStopItNow";
+
     private class SoundEntry
     {
         public string FileName;
@@ -195,15 +196,25 @@ public class Character_Damage_Patch
     {
         if (__state && __instance.GetHealth() <= 0f)
         {
-            string objName = __instance.gameObject.name;
-            if (objName.Contains("Seagal"))
+            if (__instance.gameObject.name.Contains("Seagal"))
             {
-                // Fallback: If network didn't sync the attacker, just assign to local player so we can play the sound. This is a workaround for multiplayer where the attacker might not be synced.
                 Character attacker = (hit?.GetAttacker()) ?? Player.m_localPlayer;
-                if (attacker != null && attacker.IsPlayer())
+                
+                // Only let the local player who made the kill broadcast the sound
+                if (attacker != null && attacker == Player.m_localPlayer)
                 {
-                    SeagullPlugin.LogMessage("Seagull killed via Character damage patch!");
-                    SeagullPlugin.PlayDeathSound(attacker.transform.position);
+                    SeagullPlugin.LogMessage("Seagal killed via Character damage patch!");
+
+                    if (ZRoutedRpc.instance != null)
+                    {
+                        // ZRoutedRpc.Everybody sends to all clients, including your own
+                        ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, SeagullPlugin.znetEventName, attacker.transform.position);
+                    }
+                    else
+                    {
+                        // Offline/fallback safety
+                        SeagullPlugin.PlayDeathSound(attacker.transform.position);
+                    }
                 }
             }
         }
@@ -215,19 +226,43 @@ public class Destructible_Damage_Patch
 {
     static void Postfix(Destructible __instance, HitData hit)
     {
-        if (__instance != null)
+        if (__instance != null && __instance.gameObject.name.Contains("Seagal"))
         {
-            string objName = __instance.gameObject.name;
+            Character attacker = (hit?.GetAttacker()) ?? Player.m_localPlayer;
             
-            if (objName.Contains("Seagal"))
+            // Only let the local player who made the kill broadcast the sound
+            if (attacker != null && attacker == Player.m_localPlayer)
             {
-                Character attacker = (hit?.GetAttacker()) ?? Player.m_localPlayer;
-                if (attacker != null && attacker.IsPlayer())
+                SeagullPlugin.LogMessage("Seagal killed via Destructible damage patch!");
+
+                if (ZRoutedRpc.instance != null)
                 {
-                    SeagullPlugin.LogMessage("Player killed seagull via Destructible damage patch!");
+                    ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, SeagullPlugin.znetEventName, attacker.transform.position);
+                }
+                else
+                {
                     SeagullPlugin.PlayDeathSound(attacker.transform.position);
                 }
             }
         }
+    }
+}
+
+[HarmonyPatch(typeof(ZNet), "Awake")]
+public class ZNet_Awake_Patch
+{
+    static void Postfix()
+    {
+        if (ZRoutedRpc.instance != null)
+        {
+            ZRoutedRpc.instance.Register<Vector3>(SeagullPlugin.znetEventName, RPC_PlaySeagalStopItNow);
+            SeagullPlugin.LogMessage("Seagal network RPC registered.");
+        }
+    }
+
+    private static void RPC_PlaySeagalStopItNow(long sender, Vector3 position)
+    {
+        SeagullPlugin.LogMessage($"Playing Seagal stop it now sound via network (Sender: {sender})");
+        SeagullPlugin.PlayDeathSound(position);
     }
 }
