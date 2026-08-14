@@ -22,7 +22,7 @@ namespace SeagullStopItNow
         public int? Order;
     }
 
-    [BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.6")]
+    [BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.7")]
     public class SeagullPlugin : BaseUnityPlugin
     {
         private static SeagullPlugin Instance;
