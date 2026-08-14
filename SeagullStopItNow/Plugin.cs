@@ -299,6 +299,19 @@ namespace SeagullStopItNow
 
         private static void RPC_PlaySeagalStopItNow(long sender, Vector3 position)
         {            
+            // Get our local player's network ID
+            long localPlayerID = ZNet.instance != null ? ZNet.GetUID() : 0;
+
+            // Check if the sound was sent by someone else
+            bool isFromAnotherPlayer = (sender != localPlayerID);
+
+            // If configured to ignore other players and this packet came from someone else, exit early
+            if (isFromAnotherPlayer && SeagullPlugin.IgnoreOtherPlayersBroadcasts.Value)
+            {
+                SeagullPlugin.LogMessage($"Ignored seagull sound broadcast from sender {sender} due to user settings.");
+                return;
+            }
+
             SeagullPlugin.LogMessage($"Playing Seagal stop it now sound via network (Sender: {sender})");
             SeagullPlugin.PlayDeathSound(position);
         }
