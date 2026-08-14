@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeagullStopItNow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.6+923ce4cc09410215180ea603d24dc094af68357d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.6+0a7a1188b15539053513323f4ece0bbb230b52e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ValheimMod-SeagullStopItNow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeagullStopItNow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.6.0")]
