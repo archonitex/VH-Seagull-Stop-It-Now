@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -11,6 +11,17 @@ using System;
 
 namespace SeagullStopItNow
 {
+    // Paste this class inside your namespace (e.g., namespace SeagullStopItNow)
+    public class ConfigurationManagerAttributes
+    {
+        public bool? ShowRangeAsPercent;
+        public System.Action<BepInEx.Configuration.ConfigEntryBase> CustomDrawer;
+        public System.Func<BepInEx.Configuration.ConfigEntryBase, bool> CustomDrawerIsAdvanced;
+        public bool? Browsable;
+        public bool? IsAdvanced;
+        public int? Order;
+    }
+
     [BepInPlugin("com.archonite.seagullstopitnow", "Seagull Stop It Now", "1.0.6")]
     public class SeagullPlugin : BaseUnityPlugin
     {
@@ -19,6 +30,7 @@ namespace SeagullStopItNow
 
         // Config
         public static ConfigEntry<bool> BroadcastToMultiplayer;
+        public static ConfigEntry<bool> IgnoreOtherPlayersBroadcasts;
 
         private class SoundEntry
         {
@@ -49,12 +61,27 @@ namespace SeagullStopItNow
         {
             Instance = this;
 
-            // Config: multiplayer broadcast (default = on)
             BroadcastToMultiplayer = Config.Bind(
                 "General",
                 "BroadcastToMultiplayer",
                 true,
-                "If enabled, the death sound is broadcast to all players in multiplayer. If disabled, the sound only plays locally for the player who killed the seagull.");
+                new ConfigDescription(
+                    "If enabled, the death sound is broadcast to all players in multiplayer.",
+                    null,
+                    new ConfigurationManagerAttributes { Browsable = true, IsAdvanced = false }
+                )
+            );
+
+            IgnoreOtherPlayersBroadcasts = Config.Bind(
+                "General",
+                "IgnoreOtherPlayersBroadcasts",
+                false,
+                new ConfigDescription(
+                    "If enabled, you will not hear seagull death sounds triggered by other players in multiplayer.",
+                    null,
+                    new ConfigurationManagerAttributes { Browsable = true, IsAdvanced = false }
+                )
+            );
 
             LoadAllAudio();
             harmony.PatchAll();
@@ -271,7 +298,7 @@ namespace SeagullStopItNow
         }
 
         private static void RPC_PlaySeagalStopItNow(long sender, Vector3 position)
-        {
+        {            
             SeagullPlugin.LogMessage($"Playing Seagal stop it now sound via network (Sender: {sender})");
             SeagullPlugin.PlayDeathSound(position);
         }

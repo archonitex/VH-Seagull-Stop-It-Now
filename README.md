@@ -29,5 +29,5 @@ If you want to use your own sounds in the future, you can simply replace the inc
 * **v1.0.3**
 * **v1.0.4**
   * Added support for multiplayer. The sound will now play at the location of the player that killed the Seagull.
-* **v1.0.5**
+* **v1.0.6**
   * Moved multiplayer support to RPC call as previous solution was not working. For sound to play from other player's kill, they must also have the mod. The sound will play at the killer's location.
