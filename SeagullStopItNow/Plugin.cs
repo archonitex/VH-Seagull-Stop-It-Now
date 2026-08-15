@@ -11,7 +11,6 @@ using System;
 
 namespace SeagullStopItNow
 {
-    // Paste this class inside your namespace (e.g., namespace SeagullStopItNow)
     public class ConfigurationManagerAttributes
     {
         public bool? ShowRangeAsPercent;
